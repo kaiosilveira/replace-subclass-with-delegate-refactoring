@@ -1,7 +1,6 @@
-import { Booking } from './bookings/index.js';
-import { date, show } from './index.js';
+import { createBooking, date, show } from './index.js';
 
-const booking = new Booking(show, date);
+const booking = createBooking(show, date);
 
 console.log(`Booking details`);
 console.log(
