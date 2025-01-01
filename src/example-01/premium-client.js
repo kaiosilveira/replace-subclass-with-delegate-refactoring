@@ -1,7 +1,6 @@
-import { PremiumBooking } from './bookings/premium/index.js';
-import { date, extras, show } from './index.js';
+import { createPremiumBooking, date, extras, show } from './index.js';
 
-const booking = new PremiumBooking(show, date, extras);
+const booking = createPremiumBooking(show, date, extras);
 
 console.log(`Booking details`);
 console.log(
