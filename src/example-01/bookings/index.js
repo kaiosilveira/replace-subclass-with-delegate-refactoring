@@ -1,3 +1,5 @@
+import { PremiumBookingDelegate } from './premium/delegate/index.js';
+
 const FRIDAY = 5;
 const SATURDAY = 6;
 export const PEAK_DAYS = [FRIDAY, SATURDAY];
@@ -21,5 +23,9 @@ export class Booking {
     let result = this._show.price;
     if (this.isPeakDay) result += Math.round(result * 0.15);
     return result;
+  }
+
+  _bePremium(extras) {
+    this._premiumDelegate = new PremiumBookingDelegate(this, extras);
   }
 }
