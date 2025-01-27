@@ -10,5 +10,7 @@ export function createBooking(show, date) {
 }
 
 export function createPremiumBooking(show, date, extras) {
-  return new PremiumBooking(show, date, extras);
+  const result = new PremiumBooking(show, date, extras);
+  result._bePremium(extras);
+  return result;
 }
