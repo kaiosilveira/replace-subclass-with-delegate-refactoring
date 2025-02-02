@@ -7,7 +7,7 @@ export class PremiumBooking extends Booking {
   }
 
   get hasTalkback() {
-    return this._show.hasOwnProperty('talkback');
+    return this._premiumDelegate.hasTalkback;
   }
 
   get basePrice() {

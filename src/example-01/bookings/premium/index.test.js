@@ -7,6 +7,7 @@ describe('PremiumBooking', () => {
   describe('talkback', () => {
     it('should offer talkback', () => {
       const booking = new PremiumBooking({ talkback: true }, saturdayDecFourteenth);
+      booking._bePremium();
       expect(booking.hasTalkback).toBe(true);
     });
   });
