@@ -19,6 +19,12 @@ describe('Booking', () => {
       const booking = new Booking({ talkback: true }, saturdayDecFourteenth);
       expect(booking.hasTalkback).toBe(false);
     });
+
+    it('should offer talkback even for peak days if it is a premium booking', () => {
+      const booking = new Booking({ talkback: true }, saturdayDecFourteenth);
+      booking._bePremium();
+      expect(booking.hasTalkback).toBe(true);
+    });
   });
 
   describe('basePrice', () => {
