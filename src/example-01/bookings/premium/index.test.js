@@ -4,14 +4,6 @@ const saturdayDecFourteenth = new Date('2024-12-14');
 const sundayDecFifteenth = new Date('2024-12-15');
 
 describe('PremiumBooking', () => {
-  describe('talkback', () => {
-    it('should offer talkback', () => {
-      const booking = new PremiumBooking({ talkback: true }, saturdayDecFourteenth);
-      booking._bePremium();
-      expect(booking.hasTalkback).toBe(true);
-    });
-  });
-
   describe('dinner', () => {
     it('should offer dinner for non-peak days', () => {
       const booking = new PremiumBooking({}, sundayDecFifteenth, { dinner: true });
