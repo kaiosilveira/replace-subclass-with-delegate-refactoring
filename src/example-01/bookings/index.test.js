@@ -37,6 +37,12 @@ describe('Booking', () => {
       const booking = new Booking({ price: 100 }, saturdayDecFourteenth);
       expect(booking.basePrice).toBe(115);
     });
+
+    it('should add a premium fee to the base price if upgraded to premium', () => {
+      const booking = new Booking({ price: 100 }, sundayDecFifteenth);
+      booking._bePremium({ premiumFee: 10 });
+      expect(booking.basePrice).toBe(110);
+    });
   });
 
   describe('peak days', () => {

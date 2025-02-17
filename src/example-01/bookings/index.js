@@ -24,7 +24,7 @@ export class Booking {
   get basePrice() {
     let result = this._show.price;
     if (this.isPeakDay) result += Math.round(result * 0.15);
-    return result;
+    return this._premiumDelegate ? this._premiumDelegate.extendBasePrice(result) : result;
   }
 
   _bePremium(extras) {
