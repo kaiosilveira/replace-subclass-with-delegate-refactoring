@@ -1,6 +1,7 @@
 import { PremiumBookingDelegate } from '.';
 import { Booking } from '../..';
 
+const saturdayDecFourteenthPeakDay = new Date('2024-12-14');
 const sundayDecFifteenth = new Date('2024-12-15');
 
 describe('PremiumBookingDelegate', () => {
@@ -25,6 +26,20 @@ describe('PremiumBookingDelegate', () => {
       const booking = new Booking({ price: 100 }, sundayDecFifteenth);
       const delegate = new PremiumBookingDelegate(booking, extras);
       expect(delegate.extendBasePrice(booking.basePrice)).toBe(110);
+    });
+  });
+
+  describe('hasDinner', () => {
+    it('should return true if extras include dinner and it is not peak day', () => {
+      const booking = new Booking({}, sundayDecFifteenth);
+      const delegate = new PremiumBookingDelegate(booking, extras);
+      expect(delegate.hasDinner).toBe(true);
+    });
+
+    it('should not offer dinner for peak days', () => {
+      const booking = new Booking({}, saturdayDecFourteenthPeakDay);
+      const delegate = new PremiumBookingDelegate(booking, { dinner: true });
+      expect(delegate.hasDinner).toBe(false);
     });
   });
 });

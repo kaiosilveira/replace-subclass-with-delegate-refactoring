@@ -8,6 +8,10 @@ export class PremiumBookingDelegate {
     return this._host._show.hasOwnProperty('talkback');
   }
 
+  get hasDinner() {
+    return this._extras.hasOwnProperty('dinner') && !this._host.isPeakDay;
+  }
+
   extendBasePrice(base) {
     return Math.round(base + this._extras.premiumFee);
   }
