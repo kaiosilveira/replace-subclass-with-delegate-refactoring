@@ -1,6 +1,5 @@
 import { createBooking, createPremiumBooking, date, extras, show } from '.';
 import { Booking } from './bookings';
-import { PremiumBooking } from './bookings/premium';
 
 describe('createBooking', () => {
   it('should create a booking instance', () => {
@@ -12,6 +11,6 @@ describe('createBooking', () => {
 describe('createPremiumBooking', () => {
   it('should create a premium booking instance', () => {
     const booking = createPremiumBooking(show, date, extras);
-    expect(booking).toBeInstanceOf(PremiumBooking);
+    expect(booking._premiumDelegate).toBeDefined();
   });
 });

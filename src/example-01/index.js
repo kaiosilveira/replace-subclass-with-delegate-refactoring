@@ -1,5 +1,4 @@
 import { Booking } from './bookings/index.js';
-import { PremiumBooking } from './bookings/premium/index.js';
 
 export const show = { title: 'Kendrick Lamar - GNX Tour', price: 100, talkback: true };
 export const extras = { premiumFee: 50, dinner: true };
@@ -10,7 +9,7 @@ export function createBooking(show, date) {
 }
 
 export function createPremiumBooking(show, date, extras) {
-  const result = new PremiumBooking(show, date, extras);
+  const result = new Booking(show, date, extras);
   result._bePremium(extras);
   return result;
 }
