@@ -1,3 +1,4 @@
+import { SpeciesDelegate } from './_delegate/index.js';
 import { AffricanSwallowDelegate } from './affrican-swallow/delegate/index.js';
 import { EuropeanSwallowDelegate } from './european-swallow/delegate/index.js';
 import { NorwegianBlueParrotDelegate } from './norwegian-blue-parrot/delegate/index.js';
@@ -14,7 +15,7 @@ export class Bird {
   }
 
   get plumage() {
-    return this._plumage || 'average';
+    return this._speciesDelegate.plumage;
   }
 
   get airSpeedVelocity() {
@@ -24,13 +25,13 @@ export class Bird {
   selectSpeciesDelegate(data) {
     switch (data.type) {
       case 'EuropeanSwallow':
-        return new EuropeanSwallowDelegate();
+        return new EuropeanSwallowDelegate(data, this);
       case 'AffricanSwallow':
-        return new AffricanSwallowDelegate(data);
+        return new AffricanSwallowDelegate(data, this);
       case 'NorwegianBlueParrot':
         return new NorwegianBlueParrotDelegate(data, this);
       default:
-        return null;
+        return new SpeciesDelegate(data, this);
     }
   }
 }
