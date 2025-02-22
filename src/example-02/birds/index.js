@@ -1,5 +1,6 @@
 import { AffricanSwallowDelegate } from './affrican-swallow/delegate/index.js';
 import { EuropeanSwallowDelegate } from './european-swallow/delegate/index.js';
+import { NorwegianBlueParrotDelegate } from './norwegian-blue-parrot/delegate/index.js';
 
 export class Bird {
   constructor(data) {
@@ -26,6 +27,8 @@ export class Bird {
         return new EuropeanSwallowDelegate();
       case 'AffricanSwallow':
         return new AffricanSwallowDelegate(data);
+      case 'NorwegianBlueParrot':
+        return new NorwegianBlueParrotDelegate(data);
       default:
         return null;
     }
