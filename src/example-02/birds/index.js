@@ -1,3 +1,4 @@
+import { AffricanSwallowDelegate } from './affrican-swallow/delegate/index.js';
 import { EuropeanSwallowDelegate } from './european-swallow/delegate/index.js';
 
 export class Bird {
@@ -23,6 +24,8 @@ export class Bird {
     switch (data.type) {
       case 'EuropeanSwallow':
         return new EuropeanSwallowDelegate();
+      case 'AffricanSwallow':
+        return new AffricanSwallowDelegate(data);
       default:
         return null;
     }
