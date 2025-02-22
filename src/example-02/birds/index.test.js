@@ -6,9 +6,16 @@ describe('Bird', () => {
     expect(bird.name).toBe('birdie');
   });
 
-  it('should have airSpeedVelocity as null', () => {
-    const bird = new Bird({ name: 'birdie' });
-    expect(bird.airSpeedVelocity).toBeNull();
+  describe('airSpeedVelocity', () => {
+    it('should have airSpeedVelocity as null by default', () => {
+      const bird = new Bird({ name: 'birdie' });
+      expect(bird.airSpeedVelocity).toBeNull();
+    });
+
+    it('should have airSpeedVelocity as 35 for EuropeanSwallow', () => {
+      const bird = new Bird({ name: 'birdie', type: 'EuropeanSwallow' });
+      expect(bird.airSpeedVelocity).toBe(35);
+    });
   });
 
   describe('plumage', () => {

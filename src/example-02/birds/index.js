@@ -1,4 +1,4 @@
-import { EuropeanSwallowDelegate } from './european-swallow/delegate';
+import { EuropeanSwallowDelegate } from './european-swallow/delegate/index.js';
 
 export class Bird {
   constructor(data) {
@@ -16,7 +16,7 @@ export class Bird {
   }
 
   get airSpeedVelocity() {
-    return null;
+    return this._speciesDelegate ? this._speciesDelegate.airSpeedVelocity : null;
   }
 
   selectSpeciesDelegate(data) {
