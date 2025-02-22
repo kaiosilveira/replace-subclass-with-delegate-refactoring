@@ -8,8 +8,7 @@ export class NorwegianBlueParrot extends Bird {
   }
 
   get plumage() {
-    if (this._voltage > 100) return 'scorched';
-    return this._plumage || 'beautiful';
+    return this._speciesDelegate.plumage;
   }
 
   get airSpeedVelocity() {
