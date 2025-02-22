@@ -1,5 +1,8 @@
-export class NorwegianBlueParrotDelegate {
+import { SpeciesDelegate } from '../../_delegate/index.js';
+
+export class NorwegianBlueParrotDelegate extends SpeciesDelegate {
   constructor(data, bird) {
+    super(data, bird);
     this._voltage = data.voltage;
     this._isNailed = data.isNailed;
     this._bird = bird;
