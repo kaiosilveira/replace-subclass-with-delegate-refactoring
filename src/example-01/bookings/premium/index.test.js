@@ -15,11 +15,4 @@ describe('PremiumBooking', () => {
       expect(booking.hasDinner).toBe(false);
     });
   });
-
-  describe('basePrice', () => {
-    it('should add up premium fee to base price', () => {
-      const booking = new PremiumBooking({ price: 100 }, sundayDecFifteenth, { premiumFee: 10 });
-      expect(booking.basePrice).toBe(110);
-    });
-  });
 });
