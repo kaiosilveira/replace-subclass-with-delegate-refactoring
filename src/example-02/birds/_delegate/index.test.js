@@ -14,4 +14,11 @@ describe('SpeciesDelegate', () => {
       expect(speciesDelegate.plumage).toBe('average');
     });
   });
+
+  describe('airSpeedVelocity', () => {
+    it('should return null', () => {
+      const speciesDelegate = new SpeciesDelegate();
+      expect(speciesDelegate.airSpeedVelocity).toBeNull();
+    });
+  });
 });

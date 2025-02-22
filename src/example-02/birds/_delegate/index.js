@@ -6,4 +6,8 @@ export class SpeciesDelegate {
   get plumage() {
     return this._bird._plumage || 'average';
   }
+
+  get airSpeedVelocity() {
+    return null;
+  }
 }
