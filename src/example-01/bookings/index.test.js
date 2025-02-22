@@ -45,6 +45,25 @@ describe('Booking', () => {
     });
   });
 
+  describe('hasDinner', () => {
+    it('should not offer dinner if non-premium', () => {
+      const booking = new Booking({}, sundayDecFifteenth);
+      expect(booking.hasDinner).toBe(false);
+    });
+
+    it('should offer dinner for non-peak days if premium', () => {
+      const booking = new Booking({}, sundayDecFifteenth);
+      booking._bePremium({ dinner: true });
+      expect(booking.hasDinner).toBe(true);
+    });
+
+    it('should not offer dinner for peak days if premium', () => {
+      const booking = new Booking({}, saturdayDecFourteenth);
+      booking._bePremium({ dinner: true });
+      expect(booking.hasDinner).toBe(false);
+    });
+  });
+
   describe('peak days', () => {
     describe('monday', () => {
       it('should not be a peak day', () => {

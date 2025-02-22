@@ -11,6 +11,10 @@ export class Booking {
     this._date = date;
   }
 
+  get hasDinner() {
+    return this._premiumDelegate ? this._premiumDelegate.hasDinner : false;
+  }
+
   get isPeakDay() {
     return isPeakDay(this._date);
   }
