@@ -18,4 +18,19 @@ describe('NorwegianBlueParrotDelegate', () => {
       expect(bird.airSpeedVelocity).toBe(10 + tenPercentOfVoltage);
     });
   });
+
+  describe('plumage', () => {
+    const baseBird = {};
+    it('should be beautiful if voltage is less than 100', () => {
+      const data = { type: 'NorwegianBlueParrot', voltage: 99 };
+      const bird = new NorwegianBlueParrotDelegate(data, baseBird);
+      expect(bird.plumage).toBe('beautiful');
+    });
+
+    it('should be scorched if voltage is greater than 100', () => {
+      const data = { type: 'NorwegianBlueParrot', voltage: 101 };
+      const bird = new NorwegianBlueParrotDelegate(data, baseBird);
+      expect(bird.plumage).toBe('scorched');
+    });
+  });
 });
