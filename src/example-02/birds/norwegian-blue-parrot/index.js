@@ -13,6 +13,6 @@ export class NorwegianBlueParrot extends Bird {
   }
 
   get airSpeedVelocity() {
-    return this._isNailed ? 0 : 10 + this._voltage / 10;
+    return this._speciesDelegate.airSpeedVelocity;
   }
 }
