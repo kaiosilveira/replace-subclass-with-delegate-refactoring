@@ -28,7 +28,7 @@ export class Bird {
       case 'AffricanSwallow':
         return new AffricanSwallowDelegate(data);
       case 'NorwegianBlueParrot':
-        return new NorwegianBlueParrotDelegate(data);
+        return new NorwegianBlueParrotDelegate(data, this);
       default:
         return null;
     }
