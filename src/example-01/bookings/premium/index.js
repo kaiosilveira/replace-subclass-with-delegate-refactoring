@@ -5,8 +5,4 @@ export class PremiumBooking extends Booking {
     super(show, date);
     this._extras = extras;
   }
-
-  get hasDinner() {
-    return this._extras.hasOwnProperty('dinner') && !this.isPeakDay;
-  }
 }
