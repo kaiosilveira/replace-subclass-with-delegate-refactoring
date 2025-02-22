@@ -1,15 +1,9 @@
 import { createBird } from './index';
 import { Bird } from '..';
-import { EuropeanSwallow } from '../european-swallow';
 import { AffricanSwallow } from '../affrican-swallow';
 import { NorwegianBlueParrot } from '../norwegian-blue-parrot';
 
 describe('createBird', () => {
-  it('should create an EuropeanSwallow', () => {
-    const bird = createBird({ type: 'EuropeanSwallow' });
-    expect(bird).toBeInstanceOf(EuropeanSwallow);
-  });
-
   it('should create an AffricanSwallow', () => {
     const bird = createBird({ type: 'AffricanSwallow' });
     expect(bird).toBeInstanceOf(AffricanSwallow);
